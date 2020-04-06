@@ -1,0 +1,24 @@
+<div class="loading" *ngIf="!films">
+	cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="films">
+	<div class="user-card mt-3 mb-3">
+		<div class="avatar_mask_profile float-left mr-3">
+			<img src="{{url + '/user/avatar/'+identity.image}}" class="nav-item">
+		</div>
+		<div class="data_mask float-left">
+			
+			<h1>Perfil de {{user_name}}</h1>
+			<p>{{user_description}}</p>
+		</div>
+		<hr>
+		<div class="clearfix"></div>
+		<hr>
+		
+	</div>
+	<film-list [films]='films'
+					[identity]='identity'
+					[url]='url'></film-list>
+	
+</div>

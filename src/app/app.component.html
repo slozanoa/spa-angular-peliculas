@@ -1,0 +1,44 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success mt-2">
+    <a class="navbar-brand jsjs" [routerLink] = "['/home']">peliculas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink] = "['/home']">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" *ngFor="let category of categories">
+          <a class="nav-link" [routerLink]="['/category-detail', category.id]">{{category.name}}</a>
+        </li>
+        </ul>
+        <ul class="navbar-nav navbar-right" *ngIf="!identity">
+          <li class="nav-item active">
+            <a class="nav-link"  [routerLink] = "['/login']">Login</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link"  [routerLink] = "['/register']">Regitro</a>
+          </li>
+        </ul>
+      <ul class="navbar-nav navbar-right" *ngIf='identity && identity.name'>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{identity.name + ' '+ identity.surname}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['/film']">Crear Pelicula</a>
+              <a class="dropdown-item" [routerLink]="['/category']">Crear categoria</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" [routerLink]="['/profile', identity.sub]">Mi perfil</a>
+              <a class="dropdown-item" [routerLink] ="['/ajustes']">Ajustes</a>
+              <a class="dropdown-item" [routerLink] = "['/logout/1']">Salir</a>
+            </div>
+          </li>
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+</div>

@@ -1,0 +1,24 @@
+.film-image{
+	overflow: hidden;
+}
+.film-image img{
+	height: 200px;
+}
+.avatar_mask{
+	width: 40px;
+	height: 40px;
+	border-radius: 900px;
+	overflow: hidden;
+}
+.avatar_mask img{
+	height: 50px;
+}
+.avatar_mask_profile{
+	width: 90px;
+	height: 90px;
+	border-radius: 900px;
+	overflow: hidden;
+}
+.avatar_mask_profile img{
+	height: 90px;
+}

@@ -1,0 +1,14 @@
+<div class="col-md-12" *ngIf="!film">
+	cargando...
+</div>
+<div class="col-md-12 mt-3 alert alert-dark" *ngIf="film">
+		<h1>{{film.title}}</h1>
+	<hr>
+	<p>
+		{{category.name}} -  <a>{{user.name +' '+ user.surname}}</a>
+	</p>
+	<hr>
+	<p>
+		{{film.content}}
+	</p>
+</div>

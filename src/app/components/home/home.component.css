@@ -1,0 +1,6 @@
+.film-image{
+	overflow: hidden;
+}
+.film-image img{
+	height: 200px;
+}

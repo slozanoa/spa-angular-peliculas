@@ -1,0 +1,58 @@
+<div class="container-fluid mt-3">
+	<h1>{{page_title}}</h1>
+	<div class="card-columns">
+		<article class="card w-100" *ngFor="let film of films">
+			<div class="card-header">
+				<h3> <a>{{film.title}}</a></h3>
+			</div>
+			<div class="card-body">
+				<!-- imagen-->
+				<div class="film-image w-100" *ngIf="film.image">
+					<img src="{{url+'/film/image_film/'+film.image}}" class="w-100">
+				</div>
+				<div class="film-image w-100" *ngIf="!film.image">
+					<img src="../../assets/images/default.png" class="w-100">
+				</div>
+
+				<div class="post-button mt-3">
+					<a class="btn btn-success mr-2" [routerLink]="['/entrada',film.id]">leer</a>
+
+					<span *ngIf="identity && identity.sub == film.user_id">
+						
+						<a class="btn btn-warning mr-2" [routerLink]="['/editar-entrada', film.id]">Editar</a>
+						<button type="button" class="btn btn-primary" data-toggle="modal" 
+						[attr.data-target]="'#myModal'+film.id" >
+							  Borrar
+							</button>
+							<div class="modal" id="{{'myModal'+film.id}}">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+
+							      <!-- Modal Header -->
+							      <div class="modal-header">
+							        <h4 class="modal-title">¿Seguro que quieres borrar el post?</h4>
+
+
+							        <button type="button" class="close" data-dismiss="modal">&times;</button>
+							      </div>
+
+							      <!-- Modal body -->
+							      <div class="modal-body">
+							        vas a borrar definitivamente {{film.title}}
+							      </div>
+
+							      <!-- Modal footer -->
+							      <div class="modal-footer">
+							      	<a (click)="deleteFilm(film.id)" class="btn btn-danger" data-dismiss="modal">borrar</a>
+							        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+							      </div>
+
+							    </div>
+							  </div>
+							</div>
+					</span>
+				</div>
+			</div>
+		</article>
+	</div>
+</div>
